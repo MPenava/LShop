@@ -6,47 +6,32 @@ import ba.sum.fpmoz.informatika.lshop.model.User;
 import ba.sum.fpmoz.informatika.lshop.model.WishList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+import java.io.IOException;
+
+public class Main extends Application{
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 520, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
 
-        /*
-        Table.create(User.class);
-        Table.create(Product.class);
-        Table.create(WishList.class);
-        Table.create(Order_tbl.class);
-        Table.create(Order_details.class);
-        */
-
-        /*
-
-        **Adding new User**
-        User person = new User();
-        person.setFirstname("Marko");
-        person.setLastname("Ppenava");
-        person.setAddress("Posušje, Batin II 16");
-        person.setPhone("+38763/847-007");
-        person.setEmail("marko.penava@fpmoz.sum.ba");
-        person.setPassword("123456789");
-        person.setRole("student");
-        person.save();
-
-        **Updating user**
-        User t = (User) User.get(User.class, 1);
-        t.setLastname("Penava");
-        t.update();
-
-         */
-
-
+    }
+    public static void swapScene(Stage stage, String viewName, String title){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(viewName));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stage.setTitle(title);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            //e.printStackTrace();
+            System.out.println("Nastala je pogreška!" + e.getMessage());
+        }
 
     }
 

@@ -205,4 +205,16 @@ public class Table {
         }
         return list;
     }
+
+    public static boolean getUser(Class cls, String email, String password) throws Exception {
+        String tableName = getTableName(cls);
+        String SQL = "SELECT * FROM " + tableName +" WHERE email = " + email + " AND password = " + password;
+        Statement stmt = Database.CONNECTION.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        if (rs.next()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
