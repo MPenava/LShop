@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Table {
-    private static String  getTableName(Class cls){
+
+    private static String getTableName(Class cls){
         String [] tableNameBits = cls.getName().split("\\.");
         return tableNameBits[tableNameBits.length-1];
     }
@@ -36,14 +38,21 @@ public class Table {
             int size = entity.size();
             boolean isnull = entity.isnull();
             boolean primary = entity.primary();
+            if (size == 0){
+                CREATE_SQL_QUERY
+                        .append(fieldName)
+                        .append(" ")
+                        .append(type);
+            } else {
+                CREATE_SQL_QUERY
+                        .append(fieldName)
+                        .append(" ")
+                        .append(type)
+                        .append("(")
+                        .append(size)
+                        .append(")");
+            }
 
-            CREATE_SQL_QUERY
-                    .append(fieldName)
-                    .append(" ")
-                    .append(type)
-                    .append("(")
-                    .append(size)
-                    .append(")");
 
             if (primary) {
                 CREATE_SQL_QUERY.append(" AUTO_INCREMENT PRIMARY KEY");
@@ -82,7 +91,7 @@ public class Table {
                         .append(" FOREIGN KEY (").append(fieldName)
                         .append(") REFERENCES ").append(refTableName).append("(")
                         .append(refAttrName).append(")");
-                if (index < fields.length)
+                if (index < fields.length-1)
                     CREATE_SQL_QUERY.append(",");
                 CREATE_SQL_QUERY.append("\n");
             }
@@ -99,7 +108,7 @@ public class Table {
         Field[] fields = getClass().getDeclaredFields();
         int index = 0;
         for (Field field : fields) {
-            if (!field.getName().equals("id"))
+            if (!field.getName().toLowerCase(Locale.ROOT).equals("id"))
                 INSERT_SQL_QUERY.append(field.getName());
             index++;
             if (index > 1 && index < fields.length)
@@ -108,7 +117,7 @@ public class Table {
         INSERT_SQL_QUERY.append(") VALUES (null, ");
         index=0;
         for (Field field : fields) {
-            if (!field.getName().equals("id")){
+            if (!field.getName().toLowerCase(Locale.ROOT).equals("id")){
                 INSERT_SQL_QUERY.append("?");
             }
             index++;
@@ -116,10 +125,11 @@ public class Table {
                 INSERT_SQL_QUERY.append(", ");
         }
         INSERT_SQL_QUERY.append(")");
+        System.out.println(INSERT_SQL_QUERY);
         PreparedStatement stmt = Database.CONNECTION.prepareStatement(INSERT_SQL_QUERY.toString(), Statement.RETURN_GENERATED_KEYS);
         index = 1;
         for (Field field : fields) {
-            if (!field.getName().equals("id")){
+            if (!field.getName().toLowerCase(Locale.ROOT).equals("id")){
                 stmt.setObject(index, field.get(this));
                 index++;
             }
@@ -129,7 +139,7 @@ public class Table {
 
         ResultSet rs = stmt.getGeneratedKeys();
 
-        Field id = this.getClass().getDeclaredField("id");
+        Field id = this.getClass().getDeclaredField("ID");
         if(rs.next())
         {
             id.set(this, rs.getInt(1));
@@ -142,7 +152,7 @@ public class Table {
         Field[] fields = getClass().getDeclaredFields();
         int index = 0;
         for (Field field : fields) {
-            if (!field.getName().equals("id")) {
+            if (!field.getName().equals("ID")) {
                 UPDATE_SQL_QUERY.append(field.getName());
                 UPDATE_SQL_QUERY.append("=?");
             }
@@ -150,12 +160,12 @@ public class Table {
             if (index > 1 && index < fields.length)
                 UPDATE_SQL_QUERY.append(", ");
         }
-        Field id = this.getClass().getDeclaredField("id");
-        UPDATE_SQL_QUERY.append(" WHERE id= ").append(id.get(this));
+        Field id = this.getClass().getDeclaredField("ID");
+        UPDATE_SQL_QUERY.append(" WHERE ID= ").append(id.get(this));
         PreparedStatement stmt = Database.CONNECTION.prepareStatement(UPDATE_SQL_QUERY.toString(), Statement.RETURN_GENERATED_KEYS);
         index = 1;
         for (Field field : fields) {
-            if (!field.getName().equals("id")){
+            if (!field.getName().equals("ID")){
                 stmt.setObject(index, field.get(this));
                 index++;
             }
@@ -165,15 +175,15 @@ public class Table {
 
     public void delete() throws Exception {
         String tableName = getTableName(getClass());
-        Field id = this.getClass().getDeclaredField("id");
-        PreparedStatement stmt = Database.CONNECTION.prepareStatement("DELETE FROM "+tableName+" WHERE id=?");
+        Field id = this.getClass().getDeclaredField("ID");
+        PreparedStatement stmt = Database.CONNECTION.prepareStatement("DELETE FROM "+tableName+" WHERE ID=?");
         stmt.setObject(1, id.get(this));
         stmt.executeUpdate();
     }
 
     public static Object get(Class cls, int id) throws Exception {
         String tableName = getTableName(cls);
-        String SQL = "SELECT * FROM " + tableName +" WHERE id = " + id;
+        String SQL = "SELECT * FROM " + tableName +" WHERE ID = " + id;
         Statement stmt = Database.CONNECTION.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
         if (rs.next()){
@@ -206,15 +216,4 @@ public class Table {
         return list;
     }
 
-    public static boolean getUser(Class cls, String email, String password) throws Exception {
-        String tableName = getTableName(cls);
-        String SQL = "SELECT * FROM " + tableName +" WHERE email = " + email + " AND password = " + password;
-        Statement stmt = Database.CONNECTION.createStatement();
-        ResultSet rs = stmt.executeQuery(SQL);
-        if (rs.next()){
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

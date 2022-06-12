@@ -1,6 +1,6 @@
 package ba.sum.fpmoz.informatika.lshop.model;
 
-public class Product extends Table{
+public class Products extends Table{
     @Entity(type = "INTEGER", size = 32, primary = true)
     int id;
 
@@ -22,8 +22,9 @@ public class Product extends Table{
     @Entity(type="VARCHAR", size=50, isnull = false)
     String processor;
 
-    @Entity(type="VARCHAR", size=50, isnull = false)
-    String image;
+    public int getId() {
+        return id;
+    }
 
     public String getBrand() {
         return brand;
@@ -73,11 +74,4 @@ public class Product extends Table{
         this.processor = processor;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

@@ -8,13 +8,8 @@ public class User extends Table{
     String firstname;
 
     @Entity(type = "VARCHAR", size=50, isnull = false)
-    String lastname;
+    String surname;
 
-    @Entity(type = "VARCHAR", size=50, isnull = false)
-    String address;
-
-    @Entity(type = "VARCHAR", size=30, isnull = false)
-    String phone;
 
     @Entity(type="VARCHAR", size = 150, isnull = false)
     String email;
@@ -25,6 +20,10 @@ public class User extends Table{
     @Entity(type = "VARCHAR", size = 256, isnull = false)
     String role;
 
+    public int getId() {
+        return id;
+    }
+
     public String getFirstname() {
         return firstname;
     }
@@ -33,28 +32,12 @@ public class User extends Table{
         this.firstname = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSurname(String lastname) {
+        this.surname = surname;
     }
 
     public String getEmail() {

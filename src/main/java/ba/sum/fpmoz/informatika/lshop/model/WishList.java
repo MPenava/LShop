@@ -20,8 +20,8 @@ public class WishList extends Table{
         this.userFk = userFk;
     }
 
-    public Product getProductFk() throws Exception {
-        return (Product)Table.get(Product.class, productFk);
+    public Products getProductFk() throws Exception {
+        return (Products)Table.get(Products.class, productFk);
     }
 
     public void setProductFk(int productFk) {

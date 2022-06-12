@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.ProductControler">
+    <children>
+        <Pane prefHeight="450.0" prefWidth="205.0" style="-fx-background-color: blue;">
+            <children>
+                <Label layoutX="31.0" layoutY="25.0" prefHeight="38.0" prefWidth="160.0" text="Laptops Shop" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font size="25.0" />
+                    </font></Label>
+                <Button layoutX="32.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Home" />
+                <Button layoutX="32.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Users" />
+                <Button layoutX="32.0" layoutY="179.0" mnemonicParsing="false" onAction="#productsPage" prefHeight="25.0" prefWidth="150.0" text="Products" />
+                <Button layoutX="32.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Orders" />
+                <Button layoutX="32.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Whish List" />
+            </children></Pane>
+        <Label layoutX="230.0" layoutY="14.0" prefHeight="69.0" prefWidth="122.0" text="Products" textFill="#1227ae">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+      <TableView fx:id="tableViewProducts" layoutX="230.0" layoutY="83.0" prefHeight="200.0" prefWidth="326.0">
+        <columns>
+          <TableColumn fx:id="tableColumnID" prefWidth="26.0" text="ID" />
+          <TableColumn fx:id="tableColumnBrand" prefWidth="54.0" text="Brand" />
+            <TableColumn fx:id="tableColumnModel" prefWidth="65.0" text="Model" />
+            <TableColumn fx:id="tableColumnRam" prefWidth="32.0" text="Ram" />
+            <TableColumn fx:id="tableColumnProcessor" prefWidth="68.0" text="Processor" />
+            <TableColumn fx:id="tableColumnScreen" prefWidth="43.0" text="Screen" />
+            <TableColumn fx:id="tableColumnPrice" prefWidth="39.0" text="Price" />
+        </columns>
+      </TableView>
+    </children>
+
+</AnchorPane>
