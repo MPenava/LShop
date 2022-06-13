@@ -63,4 +63,5 @@ public class User extends Table{
     public void setRole(String role) {
         this.role = role;
     }
+
 }
