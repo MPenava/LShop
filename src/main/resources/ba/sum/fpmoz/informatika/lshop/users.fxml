@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.UserController">
+<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.UserController">
     <children>
         <Pane prefHeight="450.0" prefWidth="205.0" style="-fx-background-color: blue;">
             <children>
@@ -47,11 +46,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Ime" />
-            <Label layoutX="10.0" layoutY="23.0" text="Prezime" GridPane.rowIndex="1" />
+            <Label text="Name" />
+            <Label layoutX="10.0" layoutY="23.0" text="Surname" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="70.0" text="Email" GridPane.rowIndex="2" />
-            <Label layoutX="10.0" layoutY="117.0" text="Lozinka" GridPane.rowIndex="3" />
-            <Label layoutX="10.0" layoutY="164.0" text="Uloga" GridPane.rowIndex="4" />
+            <Label layoutX="10.0" layoutY="117.0" text="Password" GridPane.rowIndex="3" />
+            <Label layoutX="10.0" layoutY="164.0" text="Role" GridPane.rowIndex="4" />
             <TextField fx:id="firstnameTxt" prefHeight="26.0" prefWidth="127.0" GridPane.columnIndex="1" />
             <TextField fx:id="surnameTxt" layoutX="72.0" layoutY="18.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="emailTxt" layoutX="72.0" layoutY="65.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -59,7 +58,7 @@
             <TextField fx:id="roleTxt" layoutX="72.0" layoutY="159.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Button layoutX="753.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveUser" style="-fx-background-color: blue;" text="Spremi" textFill="WHITE" />
-      <Button fx:id="deleteBtn" disable="true" layoutX="499.0" layoutY="33.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: red;" text="Obriši korisnika" textFill="WHITE" />
+      <Button layoutX="753.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveUser" style="-fx-background-color: blue;" text="Save" textFill="WHITE" />
+      <Button fx:id="deleteBtn" disable="true" layoutX="499.0" layoutY="33.0" mnemonicParsing="false" onAction="#deleteUser" style="-fx-background-color: red;" text="Delete user" textFill="WHITE" />
     </children>
 </AnchorPane>

@@ -134,7 +134,6 @@ public class Table {
                 index++;
             }
         }
-        System.out.println(stmt);
         stmt.executeUpdate();
 
         ResultSet rs = stmt.getGeneratedKeys();

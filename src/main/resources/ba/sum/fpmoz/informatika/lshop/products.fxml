@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.ProductControler">
+<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.ProductControler">
     <children>
         <Pane prefHeight="450.0" prefWidth="205.0" style="-fx-background-color: blue;">
             <children>
@@ -18,22 +19,52 @@
                 <Button layoutX="32.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Orders" />
                 <Button layoutX="32.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Whish List" />
             </children></Pane>
-        <Label layoutX="230.0" layoutY="14.0" prefHeight="69.0" prefWidth="122.0" text="Products" textFill="#1227ae">
+        <Label layoutX="230.0" layoutY="14.0" prefHeight="69.0" prefWidth="122.0" text="Laptops" textFill="#1227ae">
             <font>
                 <Font size="30.0" />
             </font>
         </Label>
-      <TableView fx:id="tableViewProducts" layoutX="230.0" layoutY="83.0" prefHeight="200.0" prefWidth="326.0">
+      <TableView fx:id="tableViewProducts" layoutX="239.0" layoutY="83.0" onMouseClicked="#selectProduct" prefHeight="200.0" prefWidth="401.0">
         <columns>
           <TableColumn fx:id="tableColumnID" prefWidth="26.0" text="ID" />
-          <TableColumn fx:id="tableColumnBrand" prefWidth="54.0" text="Brand" />
-            <TableColumn fx:id="tableColumnModel" prefWidth="65.0" text="Model" />
-            <TableColumn fx:id="tableColumnRam" prefWidth="32.0" text="Ram" />
-            <TableColumn fx:id="tableColumnProcessor" prefWidth="68.0" text="Processor" />
-            <TableColumn fx:id="tableColumnScreen" prefWidth="43.0" text="Screen" />
-            <TableColumn fx:id="tableColumnPrice" prefWidth="39.0" text="Price" />
+          <TableColumn fx:id="tableColumnBrand" prefWidth="61.0" text="Brand" />
+            <TableColumn fx:id="tableColumnModel" prefWidth="63.0" text="Model" />
+            <TableColumn fx:id="tableColumnRam" prefWidth="48.0" text="Ram" />
+            <TableColumn fx:id="tableColumnProcessor" prefWidth="79.0" text="Processor" />
+            <TableColumn fx:id="tableColumnScreen" prefWidth="55.0" text="Screen" />
+            <TableColumn fx:id="tableColumnPrice" prefWidth="68.0" text="Price" />
         </columns>
       </TableView>
+      <GridPane layoutX="651.0" layoutY="83.0" prefHeight="219.0" prefWidth="167.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="69.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="98.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Brand" />
+            <Label text="Model" GridPane.rowIndex="1" />
+            <Label text="Processor" GridPane.rowIndex="3" />
+            <Label text="RAM" GridPane.rowIndex="2" />
+            <Label text="Cijena" GridPane.rowIndex="5" />
+            <TextField fx:id="brandTxt" GridPane.columnIndex="1" />
+            <TextField fx:id="modelTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="ramTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="screenTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="processorTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="priceTxt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Screen" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button layoutX="760.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveProduct" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: blue;" text="Save" textFill="WHITE" />
+      <Button fx:id="deleteBtn" disable="true" layoutX="239.0" layoutY="338.0" mnemonicParsing="false" onAction="#deleteProduct" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
     </children>
 
 </AnchorPane>
