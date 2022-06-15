@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.HomeController">
+<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.HomeController">
    <children>
       <Pane prefHeight="450.0" prefWidth="205.0" style="-fx-background-color: blue;">
          <children>
@@ -18,7 +18,7 @@
             <Button layoutX="32.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Orders" />
             <Button layoutX="32.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Whish List" />
          </children></Pane>
-      <Label layoutX="376.0" layoutY="154.0" prefHeight="142.0" prefWidth="222.0" text="Welcome!" textFill="#1227ae">
+      <Label layoutX="395.0" layoutY="154.0" prefHeight="142.0" prefWidth="287.0" text="Dobrodošli!" textFill="#1227ae">
          <font>
             <Font size="49.0" />
          </font>

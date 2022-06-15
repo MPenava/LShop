@@ -36,7 +36,7 @@ public class User extends Table{
         return surname;
     }
 
-    public void setSurname(String lastname) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 

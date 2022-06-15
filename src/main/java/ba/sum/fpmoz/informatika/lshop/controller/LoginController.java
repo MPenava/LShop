@@ -24,6 +24,7 @@ public class LoginController{
     @FXML
     protected void loginUser(ActionEvent evt) throws Exception {
 
+        /*
         if(Table.getUser(this.email.getText(), this.password.getText()) == true){
             Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
             Main.swapScene(stage, "home.fxml","Početna stranica!");
@@ -31,14 +32,17 @@ public class LoginController{
             loginMessageLabel.setText("Please enter email and password");
         }
 
-        /*
+      
+         */
+
+
         if (this.email.getText().equals("1") && this.password.getText().equals("1")){
             Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
             Main.swapScene(stage, "home.fxml","Početna stranica!");
         }else{
             loginMessageLabel.setText("Please enter email and password");
         }
-        */
+
     }
 
 

@@ -35,7 +35,7 @@ public class Main extends Application {
     public static void swapScene(Stage stage, String viewName, String title){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(viewName));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+            Scene scene = new Scene(fxmlLoader.load(), 850, 450);
             stage.setTitle(title);
             stage.setScene(scene);
         } catch (IOException e) {
