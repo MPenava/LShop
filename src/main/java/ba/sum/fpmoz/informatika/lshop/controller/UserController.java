@@ -41,9 +41,21 @@ public class UserController implements Initializable {
 
 
     @FXML
+    protected void homePage(ActionEvent evt){
+        Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
+        Main.swapScene(stage, "home.fxml","Početna stranica!");
+    }
+
+    @FXML
     protected void productsPage(ActionEvent evt){
         Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
         Main.swapScene(stage, "products.fxml","Products");
+    }
+
+    @FXML
+    protected void usersPage(ActionEvent evt){
+        Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
+        Main.swapScene(stage, "users.fxml","Users");
     }
 
 
@@ -68,4 +80,6 @@ public class UserController implements Initializable {
 
         this.fillUsers();
     }
+
+
 }

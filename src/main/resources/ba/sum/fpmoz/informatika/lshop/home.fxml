@@ -12,9 +12,9 @@
                <font>
                   <Font size="25.0" />
                </font></Label>
-            <Button layoutX="32.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Home" />
+            <Button layoutX="32.0" layoutY="91.0" mnemonicParsing="false" onAction="#homePage" prefHeight="25.0" prefWidth="150.0" text="Home" />
             <Button layoutX="32.0" layoutY="136.0" mnemonicParsing="false" onAction="#usersPage" prefHeight="25.0" prefWidth="150.0" text="Users" />
-            <Button layoutX="32.0" layoutY="179.0" mnemonicParsing="false" onAction="#productsPage" prefHeight="25.0" prefWidth="150.0" text="Products" />
+            <Button fx:id="productsPage" layoutX="32.0" layoutY="179.0" mnemonicParsing="false" onAction="#productsPage" prefHeight="25.0" prefWidth="150.0" text="Products" />
             <Button layoutX="32.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Orders" />
             <Button layoutX="32.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Whish List" />
          </children></Pane>

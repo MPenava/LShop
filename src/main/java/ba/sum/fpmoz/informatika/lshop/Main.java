@@ -13,6 +13,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+
+    private static Main mainInstance;
+    public Main() {
+        mainInstance = this;
+    }
+
+    public static Main getInstance() {
+        return mainInstance;
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));

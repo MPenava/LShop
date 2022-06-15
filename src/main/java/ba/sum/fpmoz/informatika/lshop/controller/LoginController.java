@@ -2,14 +2,10 @@ package ba.sum.fpmoz.informatika.lshop.controller;
 
 import ba.sum.fpmoz.informatika.lshop.Main;
 import ba.sum.fpmoz.informatika.lshop.model.Table;
-import ba.sum.fpmoz.informatika.lshop.model.User;
-import ba.sum.fpmoz.informatika.lshop.model.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 

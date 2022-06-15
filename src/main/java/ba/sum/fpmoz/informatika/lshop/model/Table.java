@@ -218,7 +218,6 @@ public class Table {
 
     public static boolean getUser(String email, String password) throws Exception {
         String SQL = "SELECT * FROM user WHERE email = '" + email + "' AND password = '" + password + "';";
-        System.out.println(SQL);
         Statement stmt = Database.CONNECTION.createStatement();
         ResultSet rs = stmt.executeQuery(SQL);
         if (rs.next()){
@@ -227,5 +226,4 @@ public class Table {
             return false;
         }
     }
-
 }
