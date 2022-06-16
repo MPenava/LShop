@@ -26,9 +26,9 @@
         <TableView fx:id="tableViewUsers" layoutX="230.0" layoutY="83.0" onMouseClicked="#selectUser" prefHeight="200.0" prefWidth="391.0">
             <columns>
                 <TableColumn fx:id="tableColumnID" prefWidth="26.0" text="ID" />
-                <TableColumn fx:id="tableColumnFirstname" prefWidth="63.0" text="Firstname" />
-                <TableColumn fx:id="tableColumnSurname" prefWidth="74.0" text="Surname" />
-                <TableColumn fx:id="tableColumnEmail" minWidth="0.0" prefWidth="75.0" text="Email" />
+                <TableColumn fx:id="tableColumnFirstname" prefWidth="52.600006103515625" text="Name" />
+                <TableColumn fx:id="tableColumnSurname" prefWidth="56.0" text="Surname" />
+                <TableColumn fx:id="tableColumnEmail" minWidth="0.0" prefWidth="106.39999389648438" text="Email" />
                 <TableColumn fx:id="tableColumnPassword" minWidth="0.0" prefWidth="79.0" text="Password" />
             <TableColumn fx:id="tableColumnRole" minWidth="0.0" prefWidth="71.0" text="Role" />
             </columns>

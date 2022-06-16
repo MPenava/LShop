@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.ProductControler">
+<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.sum.fpmoz.informatika.lshop.controller.ProductControler">
     <children>
         <Pane prefHeight="450.0" prefWidth="205.0" style="-fx-background-color: blue;">
             <children>
@@ -19,7 +18,7 @@
                 <Button layoutX="32.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Orders" />
                 <Button layoutX="32.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Whish List" />
             </children></Pane>
-        <Label layoutX="230.0" layoutY="14.0" prefHeight="69.0" prefWidth="122.0" text="Laptops" textFill="#1227ae">
+        <Label layoutX="230.0" layoutY="14.0" prefHeight="69.0" prefWidth="122.0" text="Products" textFill="#1227ae">
             <font>
                 <Font size="30.0" />
             </font>
@@ -64,7 +63,7 @@
          </children>
       </GridPane>
       <Button layoutX="760.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveProduct" prefHeight="31.0" prefWidth="51.0" style="-fx-background-color: blue;" text="Save" textFill="WHITE" />
-      <Button fx:id="deleteBtn" disable="true" layoutX="239.0" layoutY="338.0" mnemonicParsing="false" onAction="#deleteProduct" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <Button fx:id="deleteBtn" disable="true" layoutX="577.0" layoutY="33.0" mnemonicParsing="false" onAction="#deleteProduct" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
     </children>
 
 </AnchorPane>
