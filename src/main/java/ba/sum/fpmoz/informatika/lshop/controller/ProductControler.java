@@ -70,18 +70,6 @@ public class ProductControler implements Initializable {
     Products selectedProduct;
 
     @FXML
-    protected void selectProduct (){
-        this.selectedProduct = (Products) this.tableViewProducts.getSelectionModel().getSelectedItem();
-        this.deleteBtn.setDisable(false);
-        this.brandTxt.setText(this.selectedProduct.getBrand());
-        this.modelTxt.setText(this.selectedProduct.getModel());
-        this.ramTxt.setText(this.selectedProduct.getRam());
-        this.processorTxt.setText(this.selectedProduct.getRam());
-        this.screenTxt.setText(this.selectedProduct.getScreen());
-        this.priceTxt.setText(this.selectedProduct.getPrice());
-    }
-
-    @FXML
     protected void homePage(ActionEvent evt){
         Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
         Main.swapScene(stage, "home.fxml","Početna stranica!");
@@ -97,6 +85,18 @@ public class ProductControler implements Initializable {
     protected void usersPage(ActionEvent evt){
         Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
         Main.swapScene(stage, "users.fxml","Users");
+    }
+
+    @FXML
+    protected void selectProduct (){
+        this.selectedProduct = (Products) this.tableViewProducts.getSelectionModel().getSelectedItem();
+        this.deleteBtn.setDisable(false);
+        this.brandTxt.setText(this.selectedProduct.getBrand());
+        this.modelTxt.setText(this.selectedProduct.getModel());
+        this.ramTxt.setText(this.selectedProduct.getRam());
+        this.processorTxt.setText(this.selectedProduct.getRam());
+        this.screenTxt.setText(this.selectedProduct.getScreen());
+        this.priceTxt.setText(this.selectedProduct.getPrice());
     }
 
     @FXML
@@ -137,6 +137,16 @@ public class ProductControler implements Initializable {
         if(this.selectedProduct != null){
             this.selectedProduct.delete();
             this.fillProducts();
+            this.brandTxt.setText("");
+            this.modelTxt.setText("");
+            this.ramTxt.setText("");
+            this.processorTxt.setText("");
+            this.screenTxt.setText("");
+            this.priceTxt.setText("");
+
+            this.deleteBtn.setDisable(true);
+
+
         }
     }
 

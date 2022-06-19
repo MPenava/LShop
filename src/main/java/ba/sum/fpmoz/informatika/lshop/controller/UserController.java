@@ -62,18 +62,6 @@ public class UserController implements Initializable {
     User selectedUser;
 
     @FXML
-    protected void selectUser (){
-        this.selectedUser = (User) this.tableViewUsers.getSelectionModel().getSelectedItem();
-        this.deleteBtn.setDisable(false);
-        this.firstnameTxt.setText(this.selectedUser.getFirstname());
-        this.surnameTxt.setText(this.selectedUser.getSurname());
-        this.emailTxt.setText(this.selectedUser.getEmail());
-        this.passwordTxt.setText(this.selectedUser.getPassword());
-        this.roleTxt.setText(this.selectedUser.getRole());
-    }
-
-
-    @FXML
     protected void homePage(ActionEvent evt){
         Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
         Main.swapScene(stage, "home.fxml","Početna stranica!");
@@ -91,6 +79,16 @@ public class UserController implements Initializable {
         Main.swapScene(stage, "users.fxml","Users");
     }
 
+    @FXML
+    protected void selectUser (){
+        this.selectedUser = (User) this.tableViewUsers.getSelectionModel().getSelectedItem();
+        this.deleteBtn.setDisable(false);
+        this.firstnameTxt.setText(this.selectedUser.getFirstname());
+        this.surnameTxt.setText(this.selectedUser.getSurname());
+        this.emailTxt.setText(this.selectedUser.getEmail());
+        this.passwordTxt.setText(this.selectedUser.getPassword());
+        this.roleTxt.setText(this.selectedUser.getRole());
+    }
 
     @FXML
     protected void saveUser() throws Exception {
@@ -127,6 +125,14 @@ public class UserController implements Initializable {
         if(this.selectedUser != null){
             this.selectedUser.delete();
             this.fillUsers();
+
+            this.firstnameTxt.setText("");
+            this.surnameTxt.setText("");
+            this.emailTxt.setText("");
+            this.passwordTxt.setText("");
+            this.roleTxt.setText("");
+
+            this.deleteBtn.setDisable(true);
         }
     }
 
